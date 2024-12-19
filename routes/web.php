@@ -8,7 +8,8 @@ use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-
+use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade as PDF;
 
 
 
@@ -134,7 +135,12 @@ Route::get('download-file/{employeeId}', [EmployeeController::class, 'downloadFi
 
 Route::get('/employees/{id}/download', [EmployeeController::class, 'downloadFile'])->name('employees.download');
 
+Route::get('getEmployees', [EmployeeController::class, 'getData'])->name('employees.getData');
 
+
+Route::get('exportExcel', [EmployeeController::class, 'exportExcel'])->name('employees.exportExcel');
+
+Route::get('exportPdf', [EmployeeController::class, 'exportPdf'])->name('employees.exportPdf');
 
 
 

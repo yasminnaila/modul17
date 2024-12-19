@@ -156,19 +156,21 @@ return [
     */
 
     'providers' => ServiceProvider::defaultProviders()->merge([
-        /*
-         * Package Service Providers...
-         */
+     /*
+      * Package Service Providers...
+      */
+     ArielMejiaDev\LarapexCharts\LarapexChartsServiceProvider::class,  // Menambahkan provider untuk LarapexCharts
 
-        /*
-         * Application Service Providers...
-         */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-    ])->toArray(),
+     /*
+      * Application Service Providers...
+      */
+     App\Providers\AppServiceProvider::class,
+     App\Providers\AuthServiceProvider::class,
+     // App\Providers\BroadcastServiceProvider::class,
+     App\Providers\EventServiceProvider::class,
+     App\Providers\RouteServiceProvider::class,
+ ])->toArray(),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -180,9 +182,9 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+'aliases' => Facade::defaultAliases()->merge([
+    'LarapexChart' => ArielMejiaDev\LarapexCharts\Facades\LarapexChart::class,  // Alias untuk menggunakan LarapexChart
+])->toArray(),
 
-    'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
-    ])->toArray(),
 
 ];
